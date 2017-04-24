@@ -1,0 +1,104 @@
+:global {
+  @import './core/material';
+  @import './core/hues';
+  @import './core/icons';
+  @import '../../node_modules/react-custom-scroll/src/main/customScroll.css';
+  @import './external/custom-scroll';
+  @import '../../node_modules/mdi/css/materialdesignicons.css';
+  @import './external/materialdesignicons';
+  @import './external/resizable';
+  @import './external/dragula';
+  @import './external/react-select';
+
+  // colors define
+  $color-blue: $primary1Color;
+
+  body {
+    font-family: 'Roboto';
+    background: $color-blue;
+    //color: map-get($theme, textColor);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-self: stretch;
+    overflow: hidden;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-content-main {
+    z-index: 101;
+  }
+
+  #app {
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+  }
+
+  .md-stretch {
+    align-self: stretch;
+  }
+
+  .md-baseline {
+    align-self: baseline;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  h2, h3 {
+    font-weight: 300;
+  }
+
+  .material-icons {
+    color: white;
+  }
+
+  .material-icons.alt {
+    color: #717171 !important;
+  }
+
+  .p-login {
+    background-color: #EEEEEE;
+  }
+
+  .p-login > div {
+    justify-content: center;
+  }
+
+  i + h1, i + h2 {
+    margin-left: 5px;
+  }
+
+  .__react_component_tooltip {
+    background: rgba(0, 0, 0, 0.6) !important;
+    padding: 5px 10px !important;
+    font-size: 12px;
+    font-weight:100;
+  }
+
+  .__react_component_tooltip:before, .__react_component_tooltip:after {
+    border: none !important;
+    border: none !important;
+  }
+
+  .snack-yellow > div {
+    background: rgba(255,235,59, 0.85) !important;
+    border: 1px solid rgba(134,134,134, 1) !important;
+    box-shadow: 1px -1px 6px #bfbfbf !important;
+  }
+
+  .no-margins {
+    margin: 0;
+  }
+
+  .no-margin-bottom {
+    margin-bottom: 0;
+  }
+}

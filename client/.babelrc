@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-2"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src/"],
+      "alias": [
+        {
+          "config": "./config",
+          "components": "./components",
+          "modules": "./modules",
+          "core": "./core",
+          "pages": "./pages"
+        }
+      ]
+    }],
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "jsx-control-statements",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements",
+    "transform-react-remove-prop-types"
+  ]
+}

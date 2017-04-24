@@ -1,0 +1,128 @@
+body {
+  background: #f1f1f1;
+}
+
+header {
+  border-bottom: solid 1px #d2d2d2 !important;
+  box-shadow: 0px 2px 5px #8e8e8e
+}
+
+header:before {
+  content: 'Phoenix docs';
+  color: #E91E63;
+  padding-right: 20px;
+  border: 1px solid #e91e63;
+  border-width: 0px 1px 0px 0px;
+  height: 100%;
+}
+
+header a {
+  color: #b1969f;
+}
+
+.layout-container > header {
+  background: #2D323E;
+  color: #bdbec2;
+}
+
+/*
+  Comments are written on class view,
+  So all of them will be about classes documentation,
+  but styles will be applied everywhere
+  - to simplify description process and make css rule finding easier
+ */
+.content {
+  background: #f1f1f1;
+}
+
+/** Navigation **/
+.navigation {
+  background: #f1f1f1;
+  box-shadow: 2px 0px 5px #c3c3c3;
+}
+
+.navigation .nav-header {
+  background: #f1f1f1;
+  color: #797979;
+  box-shadow: inset 0 -1px #adadad;
+}
+
+.navigation .nav-dir-path {
+  background: #d2d2d2;
+  color: #797979;
+}
+
+.navigation .nav-file {
+  display: none;
+  /*background: #f1f1f1;*/
+  /*color: #797979;*/
+}
+
+.navigation .nav-kind-class,
+.navigation .nav-kind-variable
+.navigation .nav-kind-function{
+  background: #f1f1f1;
+}
+
+/**************************************************************/
+/****                                                        **/
+/****                   File import bar                      **/
+/****                                                        **/
+/**************************************************************/
+.header-notice {
+  margin-bottom: 20px;
+}
+
+.header-notice .import-path .prettyprint, .header-notice .import-path .prettyprint code {
+  background: #f1f1f1;
+}
+
+/**************************************************************/
+/****                                                        **/
+/****             Class name/description bar                 **/
+/****                                                        **/
+/**************************************************************/
+/* Class name container */
+.self-detail.detail {
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  background: white;
+}
+
+/* Class description */
+.self-detail.detail .description {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Let's hide extend if its react */
+[data-ice='extendsChain'] h4 {
+  display: none;
+}
+
+.example-caption {
+  padding: 5px 15px;
+}
+
+
+/**************************************************************/
+/****                                                        **/
+/****             Class Method Summary bar                 **/
+/****                                                        **/
+/**************************************************************/
+[data-ice='methodSummary'],
+[data-ice='staticMethodSummary'],
+[data-ice='constructorSummary'],
+[data-ice='staticMethodDetails'],
+[data-ice='methodDetails'],
+[data-ice='staticMethodDetails'],
+[data-ice='constructorDetails']{
+  height: auto;
+  cursor: pointer;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+

@@ -1,0 +1,18 @@
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-image: url('../../../public/bg_pattern.png');
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.6;
+}
+
+video {
+  object-fit: cover;
+  position: absolute;
+  top: -85%;
+  left: -45%;
+  z-index: 1;
+}

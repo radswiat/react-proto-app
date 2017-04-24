@@ -1,0 +1,79 @@
+.compact-container {
+  @extend .container;
+  min-width: 64px;
+  max-width: 64px;
+
+
+  .header {
+    .logo-text {
+      display: none;
+    }
+    i {
+      display: none;
+    }
+  }
+
+  .menu-element-not-found {
+    text-indent: -9999px;
+    position: relative;
+    &:after {
+      content: '.....';
+      position: absolute;
+      top: 10px;
+      left: 23px;
+      text-indent: 0px;
+      color: #8c6c6c;
+    }
+  }
+
+  .menu-element {
+    span, a, label {
+      display: none !important;
+    }
+  }
+
+  h3 {
+    text-indent: -9999px;
+    position: relative;
+    &:after {
+      content: '.....';
+      position: absolute;
+      top: 10px;
+      left: 23px;
+      text-indent: 0px;
+    }
+  }
+
+
+  // Hover is kind of extended view, lets modify it ...
+  &:hover {
+    min-width: 240px;
+    max-width: 240px;
+    h3 {
+      text-indent: 0px;
+      &:after {
+        content: '';
+      }
+    }
+
+    .menu-element-not-found {
+      text-indent: 0px;
+      &:after {
+        content: '';
+      }
+    }
+    .header {
+      .logo-text {
+        display: inherit;
+      }
+      i {
+        display: inherit;
+      }
+    }
+    .menu-element {
+      span, a, label {
+        display: inherit !important;
+      }
+    }
+  }
+}

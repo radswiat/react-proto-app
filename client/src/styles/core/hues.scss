@@ -1,0 +1,37 @@
+//$md-list: 1 2 3;
+//@each $current-md in $md-list {
+//
+//  $i: index($md-list, $current-md);
+//  .md-accent-#{$i} {
+//
+//    background: map-get($theme, #{'accent'+$i+'Color'}) !important;
+//    color: map-get($theme, #{'accent'+$i+'TextColor'}) !important;
+//    border-color: map-get($theme, #{'accent'+$i+'BorderColor'});
+//    span, p, li {
+//      color: map-get($theme, #{'accent'+$i+'TextColor'}) !important;
+//    }
+//    h1, h2, h3, h4, h5, h6 {
+//      color: map-get($theme, #{'accent'+$i+'TextHColor'}) !important;
+//    }
+//    .hover {
+//      &:hover {
+//        background: map-get($theme, #{'accent'+$i+'HoverColor'}) !important;
+//      }
+//    }
+//    &.md-hue-1 {
+//      background: map-get($theme, #{'accent'+$i+'Hue1Color'}) !important;
+//      color: map-get($theme, #{'accent'+$i+'Hue1Color'}) !important;
+//    }
+//
+//    &.md-hue-2 {
+//      background: map-get($theme, #{'accent'+$i+'Hue2Color'}) !important;
+//      color: map-get($theme, #{'accent'+$i+'Hue2Color'}) !important;
+//    }
+//
+//    &.md-hue-3 {
+//      background: map-get($theme, #{'accent'+$i+'Hue3Color'}) !important;
+//      color: map-get($theme, #{'accent'+$i+'Hue3Color'}) !important;
+//    }
+//
+//  }
+//}
