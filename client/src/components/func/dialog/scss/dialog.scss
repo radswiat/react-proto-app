@@ -9,13 +9,18 @@
 .overlayClassName {}
 
 // title/header
-.titleClassName {}
+.titleClassName {
+  background: $accentColor;
+}
 
 // body
 .bodyClassName {}
 
 // footer/actions
-.actionsContainerClassName {}
+.actionsContainerClassName {
+  border: 1px solid $dividerColor !important;
+  border-width: 1px 0px 0px 0px !important;;
+}
 
 // idk
 .contentClassName {}
