@@ -12,6 +12,22 @@ export default class CategoryDialog extends React.Component {
     isOpen: PropTypes.bool.isRequired
   };
 
+  componentWillMount() {
+    this.setState({
+      isOpen: this.props.isOpen
+    });
+  }
+
+  handleCancel = () => {
+    this.setState({
+      isOpen: false
+    });
+  };
+
+  handleSave = () => {
+
+  };
+
   render() {
     return (
       <div>
@@ -19,12 +35,10 @@ export default class CategoryDialog extends React.Component {
         <Dialog
           title="Dialog With Actions"
           actions={[
-            <RaisedButton label="CANCEL" />,
-            <RaisedButton label="SAVE" primary />
+            <RaisedButton label="CANCEL" onClick={this.handleCancel} />,
+            <RaisedButton label="SAVE" primary onClick={this.handleSave} />
           ]}
-          // modal={false}
-          open={this.props.isOpen}
-          // onRequestClose={this.handleClose}
+          open={this.state.isOpen}
         >
           The actions in this window were passed in as an array of React objects.
           <Formsy.Form>

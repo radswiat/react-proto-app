@@ -5,11 +5,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
-import { themeConfig, themeColors } from './config';
-import _ from 'lodash';
+import { merge } from 'lodash';
 import routes from './routes';
 import Store from './store/store';
 import './styles/main.scss';
+import { themeColors } from 'config';
+import Color from 'color';
 
 /**
  * React App
@@ -37,7 +38,28 @@ class App {
    * Define material-ui theme
    */
   setMuiTheme() {
-    this.muiTheme = getMuiTheme(_.merge(themeConfig.muiTheme, {
+
+    // lets port material-ui colors to muiTheme colors
+    let colors = {
+      palette: {
+        primary1Color: themeColors.accentColor,
+        primary2Color: themeColors.primaryColor,
+        primary3Color: themeColors.primaryColor,
+        accent1Color: themeColors.accentColor,
+        accent2Color: themeColors.accentColor,
+        accent3Color: themeColors.accentColor,
+        textColor: themeColors.primaryTextColor,
+        alternateTextColor: themeColors.primaryTextColor,
+        canvasColor: themeColors.primaryColorText,
+        borderColor: themeColors.dividerColor,
+        disabledColor: Color(themeColors.primaryColorDark).darken(0.3).toString(),
+        pickerHeaderColor: themeColors.primaryColorDark,
+        clockCircleColor: Color(themeColors.primaryColorDark).darken(0.07).toString(),
+        shadowColor: themeColors.secondaryTextColor
+      }
+    };
+
+    this.muiTheme = getMuiTheme(merge(colors, {
       palette: themeColors[themeColors.theme]
     }));
   }
