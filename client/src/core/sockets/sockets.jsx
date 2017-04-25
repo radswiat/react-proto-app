@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 import { env } from 'config';
-import SocketsMocha from './sockets-mocha';
+// import SocketsMocha from './sockets-mocha';
 
 export class Sockets {
 
@@ -146,6 +146,6 @@ let sockets;
 if (!env.MOCHA) {
   sockets = new Sockets();
 } else {
-  sockets = new SocketsMocha();
+  // sockets = new SocketsMocha();
 }
 export default sockets;

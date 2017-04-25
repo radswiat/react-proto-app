@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Formsy from 'formsy-react';
+import { connect } from 'react-redux';
 
-import Dialog from 'components/func/dialog/dialog';
-import RaisedButton from 'components/ui/raised-button/raised-button';
-import TextField from 'components/ui/text-field/text-field';
+import insertCategory from 'store/actions/categories/insert-category';
+import Presenter from './category-dialog.presenter';
 
-export default class CategoryDialog extends React.Component {
+export class CategoryDialog extends React.Component {
 
   static propTypes = {
-    isOpen: PropTypes.bool.isRequired
+    isOpen: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isReqired
   };
 
   componentWillMount() {
@@ -18,34 +18,22 @@ export default class CategoryDialog extends React.Component {
     });
   }
 
-  handleCancel = () => {
-    this.setState({
-      isOpen: false
-    });
-  };
-
-  handleSave = () => {
-
+  actionInsert = (data) => {
+    console.error('action insert');
+    this.props.dispatch(insertCategory(data));
   };
 
   render() {
     return (
-      <div>
-        <RaisedButton label="test" />,
-        <Dialog
-          title="Dialog With Actions"
-          actions={[
-            <RaisedButton label="CANCEL" onClick={this.handleCancel} />,
-            <RaisedButton label="SAVE" primary onClick={this.handleSave} />
-          ]}
-          open={this.state.isOpen}
-        >
-          The actions in this window were passed in as an array of React objects.
-          <Formsy.Form>
-            <TextField labelFloat="test" labelHint="test2" name="test"/>
-          </Formsy.Form>
-        </Dialog>
-      </div>
+      <Presenter
+        isOpen
+        actionInsert={this.actionInsert}
+      />
     );
   }
 }
+
+export default connect(
+  /* istanbul ignore next */
+  (store) => ({})
+)(CategoryDialog);
