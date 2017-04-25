@@ -1,10 +1,14 @@
 import path from 'path';
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 import { themeColors } from '../../src/config';
-import config from './config';
+import { webpackConfig, babelConfig } from './config';
+
+/**
+ * Add noDeprecation
+ * It will remove external webpack packages warnings
+ */
+process.noDeprecation = true;
 
 /**
  * TODO: add description
@@ -17,33 +21,6 @@ let BASE_PATH = './';
  * @type {string}
  */
 let PUBLIC_PATH = '';
-
-/**
- * Babel config for:
- * - jsx babel loader
- * - eslint loader
- */
-let babelrc = {
-  babelrc: false,
-  presets: [
-    ['es2015', { "modules": false }],
-    'react',
-    'stage-2'
-  ],
-  plugins: [
-    ['module-resolver', {
-      root: ['./src/'],
-      alias: config.MODULE_RESOLVER_ALIAS
-    }],
-    'transform-runtime',
-    'transform-decorators-legacy',
-    'jsx-control-statements',
-    'transform-react-constant-elements',
-    'transform-react-inline-elements',
-    'transform-react-remove-prop-types',
-    // 'react-css-modules'
-  ]
-};
 
 const WebpackConfig = {
   devtool: 'eval',
@@ -59,7 +36,7 @@ const WebpackConfig = {
   },
   output: {
     filename: '[name]-bundle.js',
-    path: path.resolve(process.cwd(), config.OUTPUT_PATH),
+    path: path.resolve(process.cwd(), webpackConfig.outputPath),
     publicPath: `/${PUBLIC_PATH}`
   },
   resolve: {
@@ -87,7 +64,7 @@ const WebpackConfig = {
         use: [
           {
             loader: 'babel-loader',
-            options: babelrc
+            options: babelConfig
           }
         ],
         include: [
