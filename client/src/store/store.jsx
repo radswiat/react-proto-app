@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 // import reducers
-// import DocumentsReducer from 'store/reducers/documents/documents.reducer';
+import CategoriesReducer from 'store/reducers/categories/categories.reducer';
 
 /**
  * Redux store creator
@@ -33,7 +33,7 @@ class Store {
    * @type {[redux-reducer]}
    */
   static customReducers = [
-
+    CategoriesReducer
   ];
 
   /**
@@ -167,4 +167,7 @@ class Store {
   }
 }
 
-export default Store;
+// export store as a instance,
+// - it will allow us to access it without component
+//   + useful for re-selectors
+export default Store.createStore();

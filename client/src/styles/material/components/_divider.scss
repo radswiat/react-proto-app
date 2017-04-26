@@ -2,7 +2,12 @@
   display: block;
   border-top-width: 1px;
   border-top-style: solid;
+  border-color: $dividerColor;
   margin: 0;
+
+  &.md-margin {
+    margin: 32px 0px 12px 0px;
+  }
 
   &.md-inset {
     @include rtl-prop(margin-left, margin-right, $baseline-grid * 10, auto);

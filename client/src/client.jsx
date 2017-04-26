@@ -65,7 +65,7 @@ class App {
   }
 
   createStore() {
-    this.store = Store.createStore();
+    this.store = Store; // Store.createStore();
   }
 
   createHistory() {
