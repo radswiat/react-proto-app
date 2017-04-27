@@ -33,8 +33,7 @@ export default class CategoryDialogPresenter extends React.Component {
   };
 
   handleSave = () => {
-    console.error('handle save');
-    this.props.actionInsert({test: 'asdasd'});
+    this.props.actionInsert(this.state.form);
   };
 
   handleParentCategorySelect = (selectedParentCategory) => {
@@ -50,8 +49,16 @@ export default class CategoryDialogPresenter extends React.Component {
         <Dialog
           title="Create category"
           actions={[
-            <RaisedButton label="CANCEL" onClick={this.handleCancel} />,
-            <RaisedButton label="SAVE" primary onClick={this.handleSave} />
+            <RaisedButton
+              label="CANCEL"
+              onClick={this.handleCancel}
+            />,
+            <RaisedButton
+              label="SAVE"
+              onClick={this.handleSave}
+              disabledFunc={[this.state.form, 'title', 'description']}
+              primary
+            />
           ]}
           open={this.state.isOpen}
         >

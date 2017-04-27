@@ -1,6 +1,10 @@
 import Actions from '../actions';
 
-export default function (payload) {
-  let type = 'INSERT_CATEGORIES';
-  return Actions.sockets.insert(type, 'categories', payload);
+export default function (payload, dbParams) {
+  return Actions.sockets.insert({
+    reduxActionType: 'INSERT_CATEGORIES',
+    socketActionName: 'insert:categories',
+    payload,
+    dbParams
+  });
 }

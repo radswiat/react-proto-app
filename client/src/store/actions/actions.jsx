@@ -3,17 +3,17 @@ import Sockets from 'core/sockets/sockets';
 
 export default class Actions {
   static sockets = {
-    insert: (type, socketsCallName, payload) => {
+    insert: ({reduxActionType, socketActionName, payload, dbParams}) => {
       return {
-        type,
+        type: reduxActionType,
         payload: new Promise(async(resolve, reject) => {
-          debug.log('SERVER_RESPONSE', 'BEFORE_GET_COL_ROW');
+          debug.log('SERVER_RESPONSE', `BEFORE [${socketActionName}]`);
           try {
-            let res = await Sockets.emit(socketsCallName, payload);
-            debug.log('SERVER_RESPONSE', 'AFTER_GET_COL_ROW', res);
+            let res = await Sockets.emit(socketActionName, payload, dbParams);
+            debug.log('SERVER_RESPONSE', `AFTER [${socketActionName}]`, res);
             resolve(res.results);
           } catch (err) {
-            debug.log('SERVER_RESPONSE', 'AFTER_GET_COL_ROW:ERROR', err);
+            debug.log('SERVER_RESPONSE', `AFTER [${socketActionName}] ERROR`, err);
             reject(err);
           }
         })

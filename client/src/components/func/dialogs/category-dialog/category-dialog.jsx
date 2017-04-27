@@ -19,13 +19,10 @@ export class CategoryDialog extends React.Component {
     this.setState({
       isOpen: this.props.isOpen
     });
-    console.error('==============================');
-    console.log(this.props);
   }
 
   actionInsert = (data) => {
-    console.error('action insert');
-    this.props.dispatch(insertCategory(data));
+    this.props.dispatch(insertCategory(data, { filter: null }));
   };
 
   render() {

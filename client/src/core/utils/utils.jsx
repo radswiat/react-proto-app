@@ -4,6 +4,10 @@ export function isDefined(val) {
   return typeof val !== 'undefined';
 }
 
+export function isFunction(val) {
+  return typeof val === 'function';
+}
+
 export function bindPayloadFormValue(form, id, payload, cb) {
   if (!(form)) {
     form = {};
