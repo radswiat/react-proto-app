@@ -8,7 +8,7 @@
     ["module-resolver", {
       "alias": {
         "config": "../server/src/config",
-        "actions": "../server/src/actions",
+        "sockets-actions": "../server/src/sockets-actions",
         "db": "../server/src/db",
         "components": "../server/src/components",
         "core": "../server/src/core"

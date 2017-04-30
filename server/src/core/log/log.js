@@ -78,6 +78,18 @@ class Log {
     LogBufferSave.save(logContent);
   }
 
+  error(name, err) {
+    let ts = this._getTimestamp();
+    let logContent = (
+      ts +
+      chalk.bgBlack.red.bold(name) + ' ' +
+      chalk.bgBlack.bgRed.black(err.message) + '\r\n' +
+      chalk.bgBlack.red.bold(err.stack)
+    );
+    console.log(logContent);
+    LogBufferSave.save(logContent);
+  }
+
   welcome() {
     this.clear();
     let wlog = (msg) => {

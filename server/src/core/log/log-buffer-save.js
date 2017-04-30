@@ -1,4 +1,4 @@
-import { isDefined, saveFile, readFile } from 'core/utils';
+import { isDefined, saveFile, readFile } from 'core/utils/utils';
 import AnsiHtmlConvert from 'ansi-to-html';
 import { clone } from 'lodash';
 import moment from 'moment';

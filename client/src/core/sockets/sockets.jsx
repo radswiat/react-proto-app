@@ -110,9 +110,9 @@ export class Sockets {
     }
 
     return new Promise((resolve, reject) => {
-      this.clientHandshake().then(() => {
+      // this.clientHandshake().then(() => {
         this._emit(resolve, reject, action, data, params);
-      });
+      // });
     });
   }
 
@@ -126,6 +126,7 @@ export class Sockets {
    * @private
    */
   _emit(resolve, reject, action, data = {}, params = {}) {
+    console.warn('-------- emit ! -------');
     // before emit, lets extends it with clientUuid
     params.clientUuid = this.clientUuid;
     // emit

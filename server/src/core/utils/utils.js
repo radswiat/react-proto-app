@@ -7,7 +7,11 @@ import log from 'core/log/log';
 import mkdirp from 'mkdirp';
 
 export function isDefined(val) {
-  return typeof val === 'undefined' ? false : true;
+  return typeof val !== 'undefined';
+}
+
+export function isFunction(val) {
+  return typeof val === 'function';
 }
 
 export function _try(name, cb) {
@@ -16,6 +20,7 @@ export function _try(name, cb) {
     log.status(name, true);
   } catch (err) {
     log.status(name, false);
+    log.error(name, err);
   }
 }
 
