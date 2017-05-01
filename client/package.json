@@ -57,6 +57,7 @@
     "flexboxgrid": "^6.3.1",
     "formsy-react": "^0.19.2",
     "formsy-react-validations": "0.0.4",
+    "graphql-tag": "^2.0.0",
     "gsap": "^1.19.0",
     "history": "^4.6.1",
     "immutable": "^3.8.1",
