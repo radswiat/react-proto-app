@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import ctx from 'classnames';
 import CustomScroll from 'react-custom-scroll';
@@ -14,12 +14,19 @@ export default class PageNavigation extends React.Component {
 
   };
 
+  static contextTypes: {
+    router: PropTypes.object.isRequired
+  };
+
   state = {
     compact: false
   };
 
   goTo = (url) => {
-    this.context.router.push(url);
+    console.warn('---- go to -----');
+    console.log(this.context);
+    // browserHistory.push(url);
+    // this.context.router.push(url);
   };
 
   switchNavType = () => {
@@ -39,11 +46,9 @@ export default class PageNavigation extends React.Component {
       >
         <div styleName="header" className="md-toolbar md-toolbar-shadow md-accent-3">
           <div className="md-toolbar-tools">
-            <img src="public/logo.png"
-                 onClick={
-                   () => this.goTo('/home')
-                 }
-            />
+            <Link to="/">
+              <img src="public/logo.png" />
+            </Link>
             <span styleName="logo-text" />
             <span className="flex" />
             <IconButton
@@ -58,40 +63,17 @@ export default class PageNavigation extends React.Component {
           <div styleName="content" className="layout-column flex md-accent-3 md-hue-1">
             <h3>Overview</h3>
             <ul>
-              <li
-                styleName="menu-element"
-                onClick={() => this.goTo('/')}
-              >
-                <i className="mdi mdi-view-dashboard" />
-                <span>Dashboard</span>
+              <li styleName="menu-element">
+                <Link to="/">
+                  <i className="mdi mdi-view-dashboard" />
+                  <span>Dashboard</span>
+                </Link>
               </li>
-              <li
-                styleName="menu-element"
-                onClick={() => this.goTo('/releases')}
-              >
-                <i className="mdi mdi-airplane-takeoff" />
-                <span>Tests management</span>
-              </li>
-              <li
-                styleName="menu-element"
-                onClick={() => this.goTo('/releases')}
-              >
-                <i className="mdi mdi-airplane-takeoff" />
-                <span>Modules management</span>
-              </li>
-              <li
-                styleName="menu-element"
-                onClick={() => this.goTo('/releases')}
-              >
-                <i className="mdi mdi-airplane-takeoff" />
-                <span>Tests log</span>
-              </li>
-              <li
-                styleName="menu-element"
-                onClick={() => this.goTo('/releases')}
-              >
-                <i className="mdi mdi-airplane-takeoff" />
-                <span>Schedules</span>
+              <li styleName="menu-element">
+                <Link to="/manage-categories">
+                  <i className="mdi mdi-airplane-takeoff" />
+                  <span>Categories management</span>
+                </Link>
               </li>
             </ul>
           </div>

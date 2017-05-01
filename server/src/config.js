@@ -6,7 +6,7 @@ const config = {
     WAIT_MIDDLEWARE: 1000,
     // slow down sockets responses by xxx ms
     WAIT_SOCKETS: 400,
-    WEBPACK_OFF: true,
+    WEBPACK_OFF: false,
     PATH_GUI: 'build',
     BASIC_AUTH: {
       realm: 'PRE2E',

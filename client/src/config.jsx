@@ -77,7 +77,8 @@ export const debugConfig = {
  */
 export const routesConfig = {
   home: '/',
-  login: '/login'
+  login: '/login',
+  manageCategories: '/manage-categories'
 };
 
 /**
@@ -89,5 +90,8 @@ export const routesResolver = {
   },
   getLogin: () => {
     return routesConfig.login;
+  },
+  getManageCategories: () => {
+    return routesConfig.manageCategories;
   }
 };

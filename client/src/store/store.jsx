@@ -1,5 +1,5 @@
 import promiseMiddleware from 'redux-promise-middleware';
-import { routerReducer } from 'react-router-redux';
+// import { routerReducer } from 'react-router-redux';
 import * as asyncInitialState from 'redux-async-initial-state';
 import persistState from 'redux-localstorage';
 import Promise from 'bluebird';
@@ -43,8 +43,8 @@ class Store {
    * @type {{reducerKey: reducer}}
    */
   static pluginReducers = {
-    asyncInitialState: asyncInitialState.innerReducer,
-    routing: routerReducer
+    asyncInitialState: asyncInitialState.innerReducer
+    // routing: routerReducer
   };
 
   /**

@@ -74,6 +74,10 @@
     "no-extra-semi": "error",
     "semi": "error",
     "prefer-arrow-callback": "error",
-    "new-cap":  "off"
+    "new-cap":  "off",
+    // @ internal app rules
+    // use only for interal apps development!
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/img-has-alt": "off"
   }
 }

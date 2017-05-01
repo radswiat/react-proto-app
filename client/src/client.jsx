@@ -11,6 +11,7 @@ import Store from './store/store';
 import './styles/main.scss';
 import { themeColors } from 'config';
 import Color from 'color';
+import { ApolloClient, ApolloProvider } from 'react-apollo';
 
 /**
  * React App
@@ -30,6 +31,7 @@ class App {
     this.setMuiTheme();
     this.createStore();
     this.createHistory();
+    this.createApollo();
     this.awaitHotReload();
     this.render();
   }
@@ -38,7 +40,6 @@ class App {
    * Define material-ui theme
    */
   setMuiTheme() {
-
     // lets port material-ui colors to muiTheme colors
     let colors = {
       palette: {
@@ -72,6 +73,10 @@ class App {
     this.history = createBrowserHistory();
   }
 
+  createApollo() {
+    this.apolloClient = new ApolloClient();
+  }
+
   awaitHotReload() {
     if (module.hot) {
       module.hot.accept('./routes', () => {
@@ -81,15 +86,17 @@ class App {
   }
 
   render() {
-    render (
+    render(
       <Provider store={this.store}>
-        <MuiThemeProvider muiTheme={this.muiTheme}>
-          {routes(this.history, this.store)}
-        </MuiThemeProvider>
+        <ApolloProvider client={this.apolloClient}>
+          <MuiThemeProvider muiTheme={this.muiTheme}>
+            {routes(this.history, this.store)}
+          </MuiThemeProvider>
+        </ApolloProvider>
       </Provider>,
       document.getElementById('app')
-    )
+    );
   }
 }
 
-let app = App.bootstrap();
+App.bootstrap();

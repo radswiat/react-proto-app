@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Router } from 'react-router';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { routesConfig } from 'config';
 import { AppContainer } from 'react-hot-loader';
 
@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 import App from 'components/app/app';
 import PageHome from 'pages/home/home';
 import PageLogin from 'pages/login/login';
-import Page404 from 'pages/404/404';
+import ManageCategories from 'pages/manage-categories/manage-categories';
 
 /**
  * Define react routes
@@ -24,6 +24,7 @@ export default (history) => {
           <Switch>
             <Route path={routesConfig.home} exact component={PageHome} />
             <Route path={routesConfig.login} exact component={PageLogin} />
+            <Route path={routesConfig.manageCategories} exact component={ManageCategories} />
           </Switch>
         </App>
       </AppContainer>
