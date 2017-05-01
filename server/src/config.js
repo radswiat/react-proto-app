@@ -30,9 +30,13 @@ const config = {
       pathExceptions: ['/graphql']
     },
     GRAPH_QL: {
-      path: '/graphql'
     }
   }
 };
 
+export const graphqlConfig = {
+  path: '/graphql'
+};
+
 export default config.SRC;
+

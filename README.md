@@ -9,3 +9,28 @@
     primary
   />
 ```
+
+
+# Graohql queries
+
+### getCategoryById
+{
+  getCategoryById(categoryId: 5) {
+    title,
+    description,
+    parent
+  }
+}
+
+### insertCategory
+mutation {
+  insertCategory(input: {
+    title: "test",
+    description: "asdasda"
+  }) {
+    title,
+    description,
+    parent
+  }
+}
+
