@@ -1,0 +1,14 @@
+:global {
+  #__MACRO_RECORDER_CONTAINER {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 300px;
+    height: 450px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 24px;
+    box-sizing: border-box;
+    z-index: 9999999999999;
+  }
+}

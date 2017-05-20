@@ -17,7 +17,7 @@ import GraphQLService from 'db/graphql/graphql';
 import middlewareWebpackCompiler from './components/middleware/webpack-compiler';
 import middlewareResponseWait from './components/middleware/response-wait';
 import basicAuthMiddleware from './components/middleware/basic-auth';
-
+import MacroInjector from './components/macro-injector/macro-injector'
 // import sockets actions
 import HandshakeActions from 'sockets-actions/handshake/handshake';
 import CategoriesActions from 'sockets-actions/categories/categories';
@@ -118,8 +118,18 @@ export default class Server {
     /* eslint-disable */
     this.app.use('/reports', express.static(path.resolve(process.cwd(), './reports')));
     this.app.use('/coverage', express.static(path.resolve(process.cwd(), './coverage')));
-    this.app.use('/doc', express.static(path.resolve(process.cwd(), './doc')));
+    this.app.use('/macro-recorder', express.static(path.resolve(process.cwd(), '../macro-recorder/build')));
     this.app.use('/', express.static(path.resolve(process.cwd(), config.PATH_GUI)));
+
+    this.app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
+
+    new MacroInjector(this.app);
+
+
   }
 
   /**

@@ -5,21 +5,8 @@
   "scripts": {
     "docs": "esdoc -c esdoc.json",
     "start": "nodemon --watch ../server --ignore ../server/public --delay 1500ms --exec babel-node tools/run start",
-    "start:production": "nodemon --watch ../server --ignore ../server/public --delay 1500ms --exec babel-node tools/run start --production",
-    "test": "nyc --stack-size=255000  mocha-webpack --require test/utils/dom.js --webpack-config tools/webpack-configs/webpack.mocha.babel.js \"src/**/*.spec.jsx\" --reporter mochawesome --reporter-options reportDir=reports reportFilename=index",
-    "test:watch": "node --stack-size=255000 --max_old_space_size=8096 ./node_modules/mocha-webpack/bin/mocha-webpack --require test/utils/dom.js --webpack-config tools/webpack-configs/webpack.mocha.babel.js \"src/**/*.spec.jsx\" --watch --reporter mochawesome --reporter-options reportDir=reports reportFilename=index",
-    "test:debug": "node --inspect ./node_modules/mocha-webpack/bin/mocha-webpack --require test/utils/dom.js --webpack-config tools/webpack-configs/webpack.mocha.babel.js \"src/**/*.spec.jsx\" --watch --reporter mochawesome --reporter-options reportDir=reports reportFilename=index",
-    "db:export": "mongodump --out ../dump/ --db api",
-    "db:import": "mongorestore ../dump/",
-    "test:db:export": "npm run test:db:export:documents && npm run test:db:export:documentsHistory && npm run test:db:export:documentRows && npm run test:db:export:documentRowsHistory && npm run test:db:export:collections && npm run test:db:export:collectionsHistory && npm run test:db:export:collectionRows && npm run test:db:export:collectionRowsHistory",
-    "test:db:export:documents": "mongoexport -d api -c documents --pretty --jsonArray --out ./test/mock-data/documents/default.json",
-    "test:db:export:documentsHistory": "mongoexport -d api -c documentsHistory --pretty --jsonArray --out ./test/mock-data/documentsHistory/default.json",
-    "test:db:export:documentRows": "mongoexport -d api -c documentRows --pretty --jsonArray --out ./test/mock-data/documentRows/default.json",
-    "test:db:export:documentRowsHistory": "mongoexport -d api -c documentRowsHistory --pretty --jsonArray --out ./test/mock-data/documentRowsHistory/default.json",
-    "test:db:export:collections": "mongoexport -d api -c collections --pretty --jsonArray --out ./test/mock-data/collections/default.json",
-    "test:db:export:collectionsHistory": "mongoexport -d api -c collectionsHistory --pretty --jsonArray --out ./test/mock-data/collectionsHistory/default.json",
-    "test:db:export:collectionRows": "mongoexport -d api -c collectionRows --pretty --jsonArray --out ./test/mock-data/collectionRows/default.json",
-    "test:db:export:collectionRowsHistory": "mongoexport -d api -c collectionRowsHistory --pretty --jsonArray --out ./test/mock-data/collectionRowsHistory/default.json"
+    "deploy": "nodemon --watch ../server --ignore ../server/public --delay 1500ms --exec babel-node tools/run deploy",
+    "start:production": "nodemon --watch ../server --ignore ../server/public --delay 1500ms --exec babel-node tools/run start --production"
   },
   "nyc": {
     "sourceMap": false,
@@ -168,6 +155,7 @@
     "eslint-plugin-jsx-control-statements": "^2.1.1",
     "eslint-plugin-react": "^6.10.3",
     "estraverse-fb": "^1.3.1",
+    "express": "^4.15.3",
     "extend": "^3.0.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "faker": "^4.1.0",
@@ -179,6 +167,7 @@
     "gutil": "^1.6.4",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.26.0",
+    "http": "0.0.0",
     "ignore-styles": "^5.0.1",
     "imports": "^1.0.0",
     "imports-loader": "^0.7.1",
@@ -268,9 +257,7 @@
   "author": {
     "name": "BTplc"
   },
-  "contributors": [
-
-  ],
+  "contributors": [],
   "repository": {
     "type": "vcs",
     "url": "git@github.com:BTplc/mobile-presales.git"
